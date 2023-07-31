@@ -11,7 +11,6 @@ This is a simple Todo app built with Django that allows users to manage their ta
 1. Clone the repository to your local machine:
  ```
 git clone https://github.com/tashpulatovaa/Neobis_ToDo_Project.git
-cd Neobis_ToDo_Project
   ```
 
 Steps and commands for Linux machine are the same but use python3 instead of python.
@@ -23,6 +22,7 @@ source venv/bin/activate   # On Windows: venv\Scripts\activate
 ```
 3. Install the required dependencies:
 ```
+cd Neobis_ToDo_Project/ToDO
 pip install -r requirements.txt
 ```
 4. Apply migration to setup the database:
