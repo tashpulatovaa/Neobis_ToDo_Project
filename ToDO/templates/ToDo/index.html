@@ -1,0 +1,39 @@
+<!-- index.html -->
+{% extends 'ToDo/layout.html' %}
+
+{% block content %}
+
+<div style="margin-top: 50px;" class="ui container">
+    <h1 class="ui center aligned header">List of tasks</h1>
+    <form class="ui form" action="{% url 'add' %}" method="post">
+        {% csrf_token %}
+        <div class="field">
+            <label>New task</label>
+            <input type="text" name="title" placeholder="Name of the task"><br>
+            <input type="text" name="description" placeholder="Description of the task"><br>
+        </div>
+        <button class="ui teal basic button" type="submit">Add</button>
+    </form>
+
+    {% for todo in todo_list %}
+    <div class="ui segment">
+        <a href="{% url 'description' todo_id=todo.id %}" class="ui big header">{{ todo.title }}</a>
+        {% if todo.is_complete == False %}
+        <span class="ui gray label">Do</span>
+        <div>
+            <a class="ui primary basic button" href="{% url 'update' todo_id=todo.id %}">Mark as completed</a>
+        </div>
+        {% else %}
+        <span class="ui green label">Done</span>
+        <div>
+            <a class="ui blue button" href="{% url 'update' todo_id=todo.id %}">Mark as not completed</a>
+        </div>
+        {% endif %}
+        <div>
+            <a class="ui negative basic button" href="{% url 'delete' todo_id=todo.id %}">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
