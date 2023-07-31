@@ -22,11 +22,13 @@
         <span class="ui gray label">Do</span>
         <div>
             <a class="ui primary basic button" href="{% url 'update' todo_id=todo.id %}">Mark as completed</a>
+            <a class="ui blue basic button" href="{% url 'edit_todo' todo_id=todo.id %}">Edit</a>
         </div>
         {% else %}
         <span class="ui green label">Done</span>
         <div>
             <a class="ui blue button" href="{% url 'update' todo_id=todo.id %}">Mark as not completed</a>
+            <a class="ui blue basic button" href="{% url 'edit_todo' todo_id=todo.id %}">Edit</a>
         </div>
         {% endif %}
         <div>

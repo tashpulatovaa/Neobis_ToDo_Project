@@ -37,3 +37,18 @@ def delete(request, todo_id):
     todo = ToDo.objects.get(id=todo_id)
     todo.delete()
     return redirect('index')
+
+def edit_todo(request, todo_id):
+    todo = get_object_or_404(ToDo, id=todo_id)
+
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+
+        if title and description:
+            todo.title = title
+            todo.description = description
+            todo.save()
+            return redirect('index')
+
+    return render(request, 'ToDo/edit_todo.html', {'todo': todo})
