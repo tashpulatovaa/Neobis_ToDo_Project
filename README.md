@@ -10,8 +10,8 @@ This is a simple Todo app built with Django that allows users to manage their ta
 ## Installation
 1. Clone the repository to your local machine:
  ```
-git clone https://github.com/your_username/todo_app.git
-cd todo_app
+git clone https://github.com/tashpulatovaa/Neobis_ToDo_Project.git
+cd Neobis_ToDo_Project
   ```
 
 Steps and commands for Linux machine are the same but use python3 instead of python.
